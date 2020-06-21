@@ -1,0 +1,26 @@
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <div class="searchbar">
+      <input class="search_input" type="text"  #search   ([value])="search" >
+      <a  class="search_icon" (click)="searchReserved(search.value)"><i class="fas fa-search"></i></a>
+    </div>
+  </div>
+</div>
+<ul>
+  <div class="card-columns">
+
+  <div class="card border-primary mb-3" style="width: 22rem; height: 32rem; margin: 5px" *ngFor="let b of allReserved" >
+    <div class="card-body">
+      <img class="card-img-top" src="../../../assets/unnamed.jpg"  alt="Card image cap">
+      <h5 class="card-title">Title : {{b.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Borrower :{{b.borrower}}</h6>
+      <h6 class="card-subtitle mb-2 text-muted" *ngIf="b.onHand">ReturnDate: {{b.returnDate}}</h6>
+
+      <button type="button" class="btn btn-primary float-right" *ngIf="b.onHand" (click)="returnBook(b.title,b.borrower)">ReturnBook</button>
+      <button type="button" class="btn btn-success float-left"  *ngIf="!b.onHand" (click)="acceptBook(b.title,b.borrower)">Accept</button>
+      <button type="button" class="btn btn-danger float-right" *ngIf="!b.onHand" (click)="returnBook(b.title,b.borrower)">reject</button>
+
+    </div>
+  </div>
+</div>
+</ul>

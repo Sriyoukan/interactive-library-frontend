@@ -1,0 +1,52 @@
+<div class="modal" tabindex="-1" role="dialog" id="myModal" >
+    <div class="modal-dialog" role="document">
+  
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">AddLibrary</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)='navigateToSystemAdmin()'>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+        <form [formGroup]="libraryForm" (ngSubmit)="onSubmit()">
+          <div class="form-group ">
+            
+              <label >libraryName</label>
+              <input type="text" class="form-control" formControlName="name" aria-describedby="emailHelp" placeholder="Enter Library Name">
+            </div>
+            
+          
+            <div class="form-group ">
+            
+                <label >libraryPlace</label>
+                <input type="text" class="form-control" formControlName="place" aria-describedby="emailHelp" placeholder="Enter Library Place">
+              </div>
+              <div class="form-group ">
+            
+                <label >libraryId</label>
+                <input type="text" class="form-control" formControlName="id" aria-describedby="emailHelp" placeholder="Enter Library Id">
+              </div>
+              <div class="form-group ">
+            
+                <label >UserName</label>
+                <input type="text" class="form-control" formControlName="userName" aria-describedby="emailHelp" placeholder="Enter User Name">
+              </div>
+          <div class="form-group">
+            <label >userAge</label>
+            <input type="text" class="form-control" formControlName="userAge" aria-describedby="emailHelp" placeholder="Enter Age">
+    
+          </div>
+          <div class="form-group">
+            <label >Password</label>
+            <input type="password" class="form-control"  formControlName="password" placeholder="Password">
+          </div>
+    
+          <button type="submit" id="submitButton" class="btn btn-primary" >Submit</button>
+         
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>

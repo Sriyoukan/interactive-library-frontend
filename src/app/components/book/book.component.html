@@ -1,0 +1,50 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{status}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <div class="searchbar">
+      <input class="search_input" type="text"  #search   ([value])="search" >
+      <a  class="search_icon" (click)="searchBook(search.value)"><i class="fas fa-search"></i></a>
+    </div>
+  </div>
+</div>
+<div class="bs-example"> 
+  
+  
+<ul>
+  <div class="row">
+   <div class="card mx-auto" style="width: 18rem; height: 16rem; margin: 5px" *ngFor="let b of book" >
+    
+    <div class="card-body">
+      <button><i class="fa fa-file-pdf-o" aria-hidden="true" style="font-size:48px;color:red"></i></button>
+      <h5 class="card-title">Title : {{b.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Author :{{b.author}}</h6>
+      <a href="#" class="card-link">Number of copies available : {{b.numberOfCopiesAvailable}}</a>
+      <span *ngIf="currentUser">
+      
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" *ngIf="currentUser.userType === 'user'" (click)="reserve(b.title,currentUser.Id,currentLibrary.id)">Reserve</button>
+      
+      
+    </span>
+    </div>
+  </div>
+</div>
+</ul>

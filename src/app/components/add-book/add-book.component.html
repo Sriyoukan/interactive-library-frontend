@@ -1,0 +1,38 @@
+<div class="card" >
+    <div class="card-body" >
+      
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label >File</label>
+            <input type="file" id= "file" formControlname="file" class="form-control"  (change)="onFileChange($event)">
+        </div>
+  
+        <div class="form-group">
+          <label >title</label>
+          <input type="text" class="form-control" formControlName="title" aria-describedby="emailHelp" placeholder="Enter title">
+  
+        </div>
+        <div class="form-group">
+          <label >author</label>
+          <input type="text" class="form-control"  formControlName="author" placeholder="Author">
+        </div>
+        <div class="form-group">
+          <label >BookId</label>
+          <input type="text" class="form-control"  formControlName="bookId" placeholder="BookId">
+        </div>
+        <div class="form-group">
+            <label >NopiesAvailable</label>
+            <input type="text" class="form-control" formControlName="numberOfCopiesAvailable" aria-describedby="emailHelp" placeholder="Enter numberOfCopiesAvailable">
+    
+          </div>
+          <div class="form-group">
+            <label >totalCopies</label>
+            <input type="text" class="form-control" formControlName="totalCopies" aria-describedby="emailHelp" placeholder="Enter totalCopies">
+    
+          </div>
+          
+  
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
+  </div>

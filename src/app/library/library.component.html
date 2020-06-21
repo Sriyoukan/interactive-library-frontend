@@ -1,0 +1,13 @@
+
+<ul>
+  <div class="row">
+    <div class="card mx-auto" style="width: 15rem; height: 7rem; margin: 5px ;" *ngFor="let b of libraries" >
+      
+      <div class="card-body" >
+        <h5 class="card-title" >{{b.name}}</h5>
+        <button type="button" class="btn btn-primary" (click)='goToLibrary(b.id)'   >Go to Library</button>
+      </div>
+    
+  </div>
+  </div>
+  </ul>

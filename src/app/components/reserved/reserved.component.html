@@ -1,0 +1,10 @@
+
+
+<ul><div class="card" style="width: 72rem; margin: 5px" *ngFor="let b of reservedBook" >
+    <div class="card-body">
+      <h5 class="card-title">Title : {{b.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted" *ngIf= "b.onHand">returnDate :{{b.returnDate}}</h6>
+      <h6 class="card-subtitle mb-2 text-muted" *ngIf= "!b.onHand">Still not get from library</h6>
+
+    </div>
+  </div></ul>

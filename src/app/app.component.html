@@ -1,0 +1,47 @@
+<nav  class="navbar navbar-expand-sm bg-warning navbar-dark " >
+
+  <a class="navbar-brand" href="#">LibrarySystem</a>
+  
+  <ul class="nav navbar-nav ml-auto " >
+    
+      <li class="nav-item">
+          <a class="navbar-brand"  style="color: beige" *ngIf='currentUser'>{{currentUser.Id}}</a>
+        </li> 
+      <li class="nav-item">
+          
+        <span *ngIf = "currentUser">
+        <a class="nav-link " *ngIf="currentUser.userType ==='libraryAdmin'" (click)="goToAdmin()"  >AdminPage</a>
+        <a class="nav-link " *ngIf="currentUser.userType ==='systemAdmin'" (click)="goToAddLibrary()" data-toggle="modal" data-target="#myModal" >AddLibrary</a>
+
+      </span>  
+      </li>
+      <li class="nav-item" >
+        <ng-container *ngIf='currentUser; then caseA; else caseB'>
+        </ng-container>
+        <ng-template #caseA>
+          <a class="nav-link " *ngIf="currentUser.userType ==='user'" (click) ='goToReserved()'  >Reserved</a>
+          <a class="nav-link " *ngIf="currentUser.userType ==='libraryAdmin'" (click)='goToAddBook()' >AddBook</a>
+        </ng-template>
+        <!---->
+         <!-- <a class="nav-link " *ngIf="currentUser.isAdmin == 'true'" href ='/addBook' >AddBook</a>-->
+     </li> 
+     <li class="nav-item">
+      <a class="nav-link" *ngIf="currentUser"  (click)="goToNotification()">Notification</a>
+    </li>
+     <li class="nav-item">
+        <a class="nav-link" *ngIf="currentUser" (click)="logout()" href="#">LogOut</a>
+      </li>
+      
+  <li class="nav-item" >
+        <a class="btn btn-warning ml-auto" *ngIf="!currentUser" (click) ='loginRoute()' data-toggle="modal" data-target="#myModal">LogIn</a>
+ </li>
+ <li class="nav-item" >
+  <a class="btn btn-warning ml-auto" *ngIf="!currentUser" (click)="goToSignUp()">SignUp</a>
+</li>
+    
+  </ul>
+
+</nav>
+<!-- -->
+
+<router-outlet ></router-outlet>

@@ -30,7 +30,7 @@ const routes: Routes = [
   {path:'addBook',component:AddBookComponent,canActivate:[LoggedInGuard]},
   {path:'notification',component:NotificationsComponent},
   {path:'signUp',component:SignUpComponent},
-  {path:'systemAdmin',component:SystemAdminComponent},
+  {path:'systemAdmin',component:SystemAdminComponent,canActivate:[LoggedInGuard]},
   {path:'addLibrary',component:AddLibraryComponent},
 
   {path:'',component:LibraryComponent}

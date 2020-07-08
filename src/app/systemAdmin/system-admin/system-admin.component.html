@@ -1,1 +1,15 @@
-<p>SystemAdminWorks!</p>
+<ul data-dismiss="modal">
+    <div class="row">
+      <div class="card " style="width: 15rem; height: 12rem; margin: 30px ;" *ngFor="let b of Libraries" >
+        
+        <div class="card-body"  >
+          <h5 class="card-title" > Name:{{b.name}}</h5>
+          <h5 class="card-title" > Place:{{b.place}}</h5>
+          <h5 class="card-title" > Id:{{b.id}}</h5>
+
+          <button type="button" class="btn btn-primary" *ngIf= "b.name!='Admin'" (click)='deleteLibrary(b.id)'   >Delete</button>
+        </div>
+      
+    </div>
+    </div>
+    </ul>

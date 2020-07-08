@@ -1,4 +1,4 @@
-<nav  class="navbar navbar-expand-sm bg-warning navbar-dark " >
+<nav  class="navbar navbar-expand-sm bg-primary navbar-dark " >
 
   <a class="navbar-brand" href="#">LibrarySystem</a>
   
@@ -33,10 +33,10 @@
       </li>
       
   <li class="nav-item" >
-        <a class="btn btn-warning ml-auto" *ngIf="!currentUser" (click) ='loginRoute()' data-toggle="modal" data-target="#myModal">LogIn</a>
+        <a class="btn btn-primary ml-auto" *ngIf="!currentUser" (click) ='loginRoute()' data-toggle="modal" data-target="#myModal">LogIn</a>
  </li>
  <li class="nav-item" >
-  <a class="btn btn-warning ml-auto" *ngIf="!currentUser" (click)="goToSignUp()">SignUp</a>
+  <a class="btn btn-primary ml-auto" *ngIf="!currentUser" (click)="goToSignUp()" data-toggle="modal" data-target="#myModal1">SignUp</a>
 </li>
     
   </ul>

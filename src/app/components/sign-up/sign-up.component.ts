@@ -51,10 +51,11 @@ export class SignUpComponent implements OnInit {
           this.bookService.getAllBook(this.f.libraryId.value)
           .pipe(first())
           .subscribe(data=>{
-            this.router.navigate(['/userpage']);
+            window.location.reload()
+            
           })
           
-        
+          this.router.navigate(['/userpage']);
         },
         error => {
           this.error = error.error.message;

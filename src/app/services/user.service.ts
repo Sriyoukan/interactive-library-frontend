@@ -30,7 +30,8 @@ export class UserService {
   getAllLibrary(){
     return this.http.get<any>(`${this.apiUrl}/allLibrary`)
     .pipe(map(library => {
-      localStorage.setItem('allLibrary', JSON.stringify(library));
+      this.allLibrarySubject.next(library);
+
       return library;
     }))
 
@@ -98,6 +99,31 @@ export class UserService {
         return user
       }))
 
+  }
+  deleteLibrary(id){
+    return this.http.post<any>(`${this.apiUrl}/delete`,{id})
+    .pipe(map(data=>{
+      return data
+    }))
+  }
+  deleteUser(id){
+    return this.http.post<any>(`${this.apiUrl}/deleteUser`,{id})
+    .pipe(map(data=>{
+      return data
+    }))
+  }
+  deleteBook(id){
+    return this.http.post<any>(`${this.apiUrl}/deleteBook`,{id})
+    .pipe(map(data=>{
+      return data
+    }))
+  }
+
+  deleteRecieved(id){
+    return this.http.post<any>(`${this.apiUrl}/deleteRecieved`,{id})
+    .pipe(map(data=>{
+      return data
+    }))
   }
 
   logout() {

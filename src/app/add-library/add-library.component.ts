@@ -48,9 +48,10 @@ export class AddLibraryComponent implements OnInit {
           this.auth.addLibraryAdmin(this.f.userName.value,this.f.userAge.value,this.f.id.value,"libraryAdmin",this.f.password.value)
           .pipe(first())
             .subscribe(data=>{
-              window.location.reload();
-              this.router.navigate(['/systemAdmin'])
-            })
+              window.location.reload()
+              })
+
+          this.router.navigate(['/systemAdmin'])    
         },
         error => {
           this.error = error.error.message;

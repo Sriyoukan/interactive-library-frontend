@@ -28,7 +28,6 @@ export class AddBookComponent implements OnInit {
       title: ['', Validators.required],
       file:'',
       author: ['', Validators.required],
-      
       bookId:['',Validators.required],
       numberOfCopiesAvailable:['',Validators.required],
       totalCopies:['',Validators.required]
@@ -47,16 +46,13 @@ export class AddBookComponent implements OnInit {
     if (this.addForm.invalid) {
         return;
     }
-    let formdata = new FormData()
-    formdata.append('file',this.file)
+    let formdata:FormData = new FormData()
+    formdata.append('file',this.file,this.file.name)
     
     this.bookService.uploadFile(formdata)
     .subscribe(
       data => {
-      
-        
-      
-      },
+    },
       error => {
         this.error = error.error.message;
         this.loading = false;
@@ -64,7 +60,7 @@ export class AddBookComponent implements OnInit {
 
     
 
-    this.bookService.addBook(this.f.title.value, this.f.author.value,this.currentLibrary.id,this.f.bookId.value,this.f.numberOfCopiesAvailable.value,this.f.totalCopies.value)
+    this.bookService.addBook(this.f.title.value, this.f.author.value,this.currentLibrary.id,this.f.bookId.value,this.f.numberOfCopiesAvailable.value,this.f.totalCopies.value,this.file.name)
       .subscribe(
         data => {
         

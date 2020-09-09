@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule} from '@angular/router';
-import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS,HttpHeaders } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { AppRoutingModule } from './app-routing.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import {LoggedInGuard} from './logged-in.guard';
 import { BookService } from './services/book.service';
@@ -48,7 +49,8 @@ const routes: Routes = [
     SignUpComponent,
     LibraryComponent,
     SystemAdminComponent,
-    AddLibraryComponent
+    AddLibraryComponent,
+    
     
   ],
   imports: [
@@ -56,6 +58,7 @@ const routes: Routes = [
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    PdfViewerModule,
     NgbModule,
     RouterModule.forRoot(routes)
   ],

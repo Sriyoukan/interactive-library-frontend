@@ -18,6 +18,8 @@
   </div>
 </div>
 
+
+
 <div class="container h-100">
   <div class="d-flex justify-content-center h-100">
     <div class="searchbar">
@@ -34,7 +36,11 @@
    <div class="card mx-auto" style="width: 18rem; height: 16rem; margin: 5px" *ngFor="let b of book" >
     
     <div class="card-body">
-      <button><i class="fa fa-file-pdf-o" aria-hidden="true" style="font-size:48px;color:red"></i></button>
+      <button><i class="fa fa-file-pdf-o" aria-hidden="true" style="font-size:48px;color:red" (click)='viewBook(b.title)'></i></button>
+      <pdf-viewer [src]="file" 
+      [render-text]="true"
+      style="display: block;"
+      ></pdf-viewer>
       <h5 class="card-title">Title : {{b.title}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">Author :{{b.author}}</h6>
       <a href="#" class="card-link">Number of copies available : {{b.numberOfCopiesAvailable}}</a>

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   LibraryAdmin = false;
   user = false;
   libraries:any[];
+  
 
 
   loginForm: FormGroup;
@@ -37,6 +38,9 @@ export class LoginComponent implements OnInit {
     }
   }
     this.auth.allLibrary.subscribe(x=>this.libraries=x)
+    const admin = {name:"Admin",place:"Colombo",id:"Admin"}
+    this.libraries.push(admin)
+    
   }
 
   ngOnInit() {
@@ -84,6 +88,7 @@ export class LoginComponent implements OnInit {
           this.error = error.error.message;
           this.loading = false;
         });
+        return false
   }
   navigateToHome(){
     this.router.navigate(['/'])

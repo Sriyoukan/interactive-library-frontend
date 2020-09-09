@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 import { element } from 'protractor';
 import { error } from 'util';
 import { from } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -19,12 +21,13 @@ export class BookComponent implements OnInit {
   search:"";
   searchResult:any;
   reserved:any;
+  file:any;
 
-  constructor(private bookService: BookService, private userService: UserService) { 
+  constructor(private bookService: BookService, private userService: UserService,private router:Router) { 
     this.bookService.book.subscribe(x => this.book = x);
     this.userService.currentUser.subscribe(x=> this.currentUser = x);
     this.userService.currentLibrary.subscribe(x=>this.currentLibrary=x);
-
+    
 
   }
   ngOnInit() {
@@ -78,6 +81,15 @@ export class BookComponent implements OnInit {
     .subscribe(data=>{
       this.book = JSON.parse(JSON.stringify(data))
     })
+  }
+
+  viewBook(title){
+    this.bookService.viewPdf(title)
+    .subscribe(res=>{
+      this.file = res
+    })
+    
+    
   }
 
 }

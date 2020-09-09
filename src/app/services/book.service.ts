@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -23,11 +23,10 @@ export class BookService {
   public get bookValue() {
     return this.bookSubject.value;
   }
-  uploadFile(file:FormData){
-    
-    return this.http.post<any>(`${this.apiUrl}/uploadfile`,file,{reportProgress: true,  observe: 'events' })
-    .pipe(map(uploaded => {
-      return uploaded
+  uploadFile(file){
+    return this.http.post<any>(`${this.apiUrl}/uploadfile`,file,{reportProgress: true,observe: 'events'})
+    .pipe(map(() => {
+      return true
     }))
 
       
@@ -73,8 +72,8 @@ export class BookService {
         return reservedBook;
       }))
   }
-  addBook(title,author,libraryId,bookId,numberOfCopiesAvailable,totalCopies){
-    return this.http.post<any>(`${this.apiUrl}/book`,{title,author,libraryId,bookId,numberOfCopiesAvailable,totalCopies})
+  addBook(title,author,libraryId,bookId,numberOfCopiesAvailable,totalCopies,documentName){
+    return this.http.post<any>(`${this.apiUrl}/book`,{title,author,libraryId,bookId,numberOfCopiesAvailable,totalCopies,documentName})
       .pipe(map(addedBook=>{
         
         return addedBook;
@@ -102,6 +101,13 @@ export class BookService {
   }
   searchReserved(search){
     return this.http.post<any>(`${this.apiUrl}/searchReserved`,{search})
+    .pipe(map(result=>{
+      return result
+    }))
+  }
+
+  viewPdf(title){
+    return this.http.post<any>(`${this.apiUrl}/bookPdf`,{title})
     .pipe(map(result=>{
       return result
     }))

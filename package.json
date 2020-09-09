@@ -26,6 +26,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "ng-bootstrap": "^1.6.3",
+    "ng2-pdf-viewer": "^6.3.2",
     "rxjs": "~6.4.0",
     "save": "^2.4.0",
     "tslib": "^1.10.0",

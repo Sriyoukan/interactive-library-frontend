@@ -24,7 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.2.2",
     "@types/jquery": "^3.3.38",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-bootstrap": "^1.6.3",
     "ng2-pdf-viewer": "^6.3.2",
     "rxjs": "~6.4.0",
